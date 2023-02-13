@@ -13,7 +13,7 @@ export default class HomePage extends Component {
             <BrowserRouter>
                 <Routes>
                     <Route exact path="/" element={
-                        <p>This is the Home Page</p>
+                        <p>This is the Home Page!</p>
                     }>  
                     </Route>
                     <Route path="/selectsongs" element={<SelectSongsPage />}/>
