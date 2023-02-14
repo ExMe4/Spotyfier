@@ -9,3 +9,6 @@ class Song(models.Model):
     image = models.ImageField(null=True, max_length=5000)
 
     #def is_song_podcast(duration)
+
+class Playlist(models.Model):
+    Song
