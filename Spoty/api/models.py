@@ -11,4 +11,5 @@ class Song(models.Model):
     #def is_song_podcast(duration)
 
 class Playlist(models.Model):
-    Song
+    song = Song #probably should be an id
+    host = models.CharField(max_length=50, unique=True)
