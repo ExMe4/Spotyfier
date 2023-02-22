@@ -11,5 +11,5 @@ class Song(models.Model):
     #def is_song_podcast(duration)
 
 class Playlist(models.Model):
-    song = Song #probably should be an id
+    song = models.ForeignKey(Song, on_delete=models.CASCADE)
     host = models.CharField(max_length=50, unique=True)
