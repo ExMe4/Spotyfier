@@ -21,9 +21,8 @@ class PlaylistView(APIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid(): #not entering here
             song = serializer.data.get('song')
-            host = self.request.session.session_key
             queryset = Playlist.objects.all()
-            queryset = Playlist(song=song, host=host)
+            queryset = Playlist(song=song)
             queryset.save()
             return Response(SongSerializer(queryset).data, status=status.HTTP_201_CREATED)
 

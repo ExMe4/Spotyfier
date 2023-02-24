@@ -12,4 +12,3 @@ class Song(models.Model):
 
 class Playlist(models.Model):
     song = models.ForeignKey(Song, on_delete=models.CASCADE)
-    host = models.CharField(max_length=50, unique=True)
