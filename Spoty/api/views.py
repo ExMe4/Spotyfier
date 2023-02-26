@@ -19,11 +19,12 @@ class PlaylistView(APIView):
             self.request.session.create()
 
         serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid(): #not entering here
-            song = serializer.data.get('song')
-            queryset = Playlist.objects.all()
-            queryset = Playlist(song=song)
-            queryset.save()
-            return Response(SongSerializer(queryset).data, status=status.HTTP_201_CREATED)
+        if serializer.is_valid():
+            code = serializer.data.get('code')
+            queryset = Playlist.objects.filter(code=code)
+            queryset = Playlist(code=code)
+            playlist = queryset.code
+            #playlist.save()
+            return Response(CreatePlaylistSerializer(playlist).data, status=status.HTTP_201_CREATED)
 
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
